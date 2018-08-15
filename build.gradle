@@ -1,0 +1,31 @@
+group 'my.aws.java.sandbox'
+version '0.1.1'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+ext {
+    awsJavaSdkVersion = '1.11.228'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.amazonaws:aws-java-sdk-s3:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-java-sdk-ec2:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-java-sdk-sqs:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-java-sdk-sns:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-lambda-java-core:1.2.0"
+    compile "com.amazonaws:aws-java-sdk-elasticloadbalancing:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-java-sdk-iam:${awsJavaSdkVersion}"
+    compile "com.amazonaws:aws-java-sdk-route53:${awsJavaSdkVersion}"
+
+    runtime('org.springframework.boot:spring-boot-devtools')
+
+    testCompile 'junit:junit:4.12'
+}
